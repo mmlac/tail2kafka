@@ -29,8 +29,8 @@ def flush_messages(producer):
 	print "flushing remaining messages before shutdown"
 	producer.stop()
 
-def send_to_kafka(producer,message_text):
-    producer.send_messages(message_text)
+def send_to_kafka(producer,topic,message_text):
+    producer.send_messages(topic,message_text)
 
 def log_lines_generator(logfile,delay_between_iterations=None):
 	global should_stop
@@ -91,7 +91,7 @@ def main():
 	try:
 		for line in log_lines_generator(options.logfile):
 			mt = create_message_data(options.metadata,line)
-			send_to_kafka(producer,mt)
+			send_to_kafka(producer,options.topic,mt)
 	except KeyboardInterrupt,e:
 		pass
 
