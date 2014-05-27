@@ -8,13 +8,15 @@ from kafka.producer import SimpleProducer
 from optparse import OptionParser
 import subprocess
 import atexit
+import logging
+logging.basicConfig()
 
 
 should_stop = False
 
 def create_kafka_producer(options):
-    kafka = KafkaClient(options.host, int(options.port))
-    producer = SimpleProducer(kafka, options.topic, async=True, batch_send=True,
+    kafka = KafkaClient(options.host + ':' + str(int(options.port)))
+    producer = SimpleProducer(kafka, async=True, batch_send=True,
             batch_send_every_n=int(options.batch_size), batch_send_every_t=int(options.batch_time),
             req_acks=SimpleProducer.ACK_NOT_REQUIRED)
     return producer
