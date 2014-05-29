@@ -16,4 +16,5 @@ the operation of the tool.
 Any feedback/suggestions/complaints regarding this tool would be much appreciated. Contributions are most welcome as well, of course.
 
 Harel Ben-Attia, harelba@gmail.com, @harelba on Twitter  for the initial tail2kafka
+
 Markus Lachinger, business@mmlac.com, @mLachinger, blog.mmlac.com  for adaption to Kafka 0.8
