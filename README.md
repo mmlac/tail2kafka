@@ -7,6 +7,14 @@ It supports local and remote kafka servers, log rotation and batching messages t
 
 Based off of harelba's tail2kafka and adapted to Kafka 0.8 by mmlac using kafka-python by mumrah
 
+## Installation
+```
+pip install virtualenv
+virtualenv venv
+source venv/bin/activate
+pip install git+https://github.com/mumrah/kafka-python.git@v0.9.2
+python setup.py install
+```
 
 ## Known Bugs
 Still throws an error on KeyboardInterrupt. Feel free to patch it, it should however not impact
